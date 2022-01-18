@@ -4,7 +4,7 @@
 
 Welcome to another getting started class for Octopus Deploy. This class will help you learn more about environments.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/tPb6CLHyNLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Link to YouTube video](https://img.youtube.com/vi/tPb6CLHyNLA/0.jpg)](https://www.youtube.com/embed/tPb6CLHyNLA)
 
 ### Transcript
 
