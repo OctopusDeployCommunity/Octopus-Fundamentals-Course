@@ -37,13 +37,15 @@ With this in mind, it can be useful to use additional generic roles to define wh
 
 Let's see how our example looks in the Octopus Deploy UI.
 
-If we navigate to the Infrastructure tab, we can see that our two Environments each contain some Targets. We can also see Target Role that we've assigned. If we select Deployment Targets, we can see that each target has been given at least one role, and has been added to at least one environment.
+If we navigate to the Infrastructure tab, we can see that our two Environments each contain some Targets. We can also see the Target Roles that we've assigned. If we select Deployment Targets, we can see that each target has been given at least one role, and has been added to at least one environment. The names we've chosen for our Machine Roles follow our naming conventions, and we've named our Deployment Targets after their Amazon EC2 instance ID for simplicity.
 
 To recap, here are some key tips to remember as you create your own Deployment Targets and Machine Roles:
 
 - Use machine names for Deployment Targets.
 - Use a specific Machine Role naming convention on Deployment Targets, including the Deployment Project Name. For example: Website-WebServer or Docs-Database
 - Use generic Machine Roles for maintenance runbooks. For Example: IIS or MSSQL
+
+In the next class, we'll create a new Deployment Target and assign it a Machine Role.
 
 Thank you for watching, and happy deployments.
 
