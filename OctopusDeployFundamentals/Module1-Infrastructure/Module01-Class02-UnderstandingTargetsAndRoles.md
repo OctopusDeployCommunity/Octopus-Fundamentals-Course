@@ -17,7 +17,7 @@ We'll cover:
 - How to use Machine Roles to configure which tasks get executed on each Deployment Target within each environment. 
 - And advice on Machine Role and Deployment Target naming conventions.
 
-Deployment Targets are the machines and services where your application gets deployed, such as  a Linux instance in AWS, an Azure Web App, or a Kubernetes Cluster on your own infrastructure.
+Deployment Targets are the machines and services where your application gets deployed. For example, this might be a physical or virtual machine running in AWS, Azure, GCP, or your own data centre. Octopus also has native support for various Platform-As-A-Service endpoints, such as Azure Web Apps or AWS ECS Clusters. You can also set up either a Kubernetes Cluster or a specific Cloud Region as a Deployment Target. Finally, where direct connections are impossible, Octopus supports offline package drops, enabling targets to pull the latest updates on their own schedule, without granting any access to Octopus Deploy.
 
 In this case we have six Windows servers running in our data centre that are used for hosting our database, websites and load balancer. Typically, for simplicity,  we name our Targets in Octopus Deploy after their respective machine names.
 
