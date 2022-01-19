@@ -19,7 +19,7 @@ We'll cover:
 
 Deployment Targets are the machines and services where your application gets deployed. For example, this might be a physical or virtual machine running in AWS, Azure, GCP, or your own data centre. Octopus also has native support for various Platform-As-A-Service endpoints, such as Azure Web Apps or AWS ECS Clusters. You can also set up either a Kubernetes Cluster or a specific Cloud Region as a Deployment Target. Finally, where direct connections are impossible, Octopus supports offline package drops, enabling targets to pull the latest updates on their own schedule, without granting any access to Octopus Deploy.
 
-In this case we have six Windows servers running in our data centre that are used for hosting our database, websites and load balancer. Typically, for simplicity,  we name our Targets in Octopus Deploy after their respective machine names.
+In this case we have six VMs running in Amazon EC2. We are using Windows instances to host our dotnet core web apps and Linux instances to host SQL Server and our load balancer. Typically, for simplicity, in Octopus we'll name our Targets after their respective machine names.
 
 As discussed in the previous class, targets are organised into one or more Environments, such as "Development" or "Production". 
 
@@ -34,6 +34,10 @@ This example demonstrates the value of defining a standard naming convention for
 Furthermore, Octopus Deploy isn't only a deployment tool. Operations Runbooks allow us to run routine or emergency maintenance tasks, in a fully audited manner using version controlled scripts. For example, we might want to use an Operations Runbook to install the latest SQL Server updates or instruct our load balancer to remove a troublesome web server from rotation.
 
 With this in mind, it can be useful to use additional generic roles to define which targets are used to host SQL Server instances, load balancers, IIS etc.
+
+Let's see how our example looks in the Octopus Deploy UI.
+
+If we navigate to the Infrastructure tab, we can see that our two Environments each contain some Targets. We can also see Target Role that we've assigned. If we select Deployment Targets, we can see that each target has been given at least one role, and has been added to at least one environment.
 
 To recap, here are some key tips to remember as you create your own Deployment Targets and Machine Roles:
 
