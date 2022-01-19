@@ -2,7 +2,7 @@
 ## Module 1: Infrastructure
 ### Class 2: Understanding Deployment Targets and Machine Roles
 
-Welcome to class 2 of this Infrastructure module for the Octopus Deploy Fundamentals training course. This class assumes you have already completed class 1, which covers Environments.
+Welcome to class 2 of this Infrastructure module for the Octopus Deploy Fundamentals training course.
 
 EMBED VIDEO
 DRAFT VERSION ONLY: https://drive.google.com/file/d/1GqJ9LEaTpFzPFrz39uxbgJodcXxAq0Jl/view?usp=sharing
