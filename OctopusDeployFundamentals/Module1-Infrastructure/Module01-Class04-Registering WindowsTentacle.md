@@ -12,30 +12,32 @@ Welcome to class 4 of this Infrastructure module for the Octopus Deploy Fundamen
 
 In this class we'll:
 
-- Register a Windows Tentacle against our Octopus Deploy Server.
+- Register a Windows Tentacle against our Octopus Deploy Server
 - Add our Tentacle to an Environment
 - Assign our Tentacle a specific Target Role
 
-For this class I'm using a free Octopus Cloud trial for the Octopus Server and a Tentacle running on a Windows instance in Amazon EC2.
+For the Octopus Server we'll use a free Octopus Cloud trial. For the Deployment Target, we'll use a Windows instance running in AWS EC2. If you would like to learn how to set up other types of Deployment Targets, such as Linux or Mac servers, cloud regions, kubernetes clusters or offline package drops, check out the additional resources associated with this module.
+
+In our example, we want to use this instance to host the development version of a dotnet core web app. IIS and dotnet core have already been configured on the Target instance. We installed and configured our tentacle in class 3. If we RDP into our EC2 instance, we can open the Tentacle Manager and we can see that it's healthy. Now we need to register our Tentacle with the Octopus Server to enable the two-way communication between the Server and Tentacle.
 
 We're going to start by navigating to the Infrastructure page in the Octopus Cloud web portal. As you can see, we've already created a couple of Environemnts called Development and Production. We covered Environment creation in Class 1 so we won't repeat ourselves here.
 
 We haven't yet registered any Deployment Targets or assigned any Target Roles. We explained the conepts of Deployment Targets and Target Roles in class 2.
 
-If we RDP into our Windows EC2 instance, we can open the Tentacle Manager. This is the same Tentacle we set up in class 3.
-
-Our objective is to set up the communication between our Octopus Server and our Windows Tentacle so that we can use Octopus Deploy to run Tasks, such as Deployments or Operations Runbooks, on our EC2 instance.
-
-We manage our Deployment Targets by clicking Deployment Targets. On this page we can add new Deployment Targets, disable or delete Targets, check the status of a Target, and run Health Checks.
+We manage our Deployment Targets on the Octopus Server by clicking Deployment Targets. On this page we can add new Deployment Targets, disable or delete Targets, check the status of a Target, and run Health Checks.
 
 To register our Deployment Target, click ADD DEPLOYMENT TARGET.
 
-We are presented with various different options. For example, Octopus Deploy supports multiple methods for connecting to Windows, Linux or Mac machines, as well as other options for Kubernetes, cloud providers or even "offline" use cases where it's impossible to connect directly to the intended targets.
-
-We're connecting to a Windows instance in listening mode. We discussed the difference between Listening and Polling Tentacles in Class 3. Check out the additional resources for this module for tutorials to configure other types of Deployment Targets.
+We are presented with various different options and we'll chose a Windows instance in listening mode. We discussed the difference between Listening and Polling Tentacles in Class 3.
 
 Select Windows, then hover over Listening Tentacle and click ADD. This brings us to the registration page. Enter the DNS name or IP address of our Deployment Target, as well as the port which we configured it to listen on. (10933 by default.) We aren't connecting through a Proxy so accept the defaults and click NEXT.
 
-We want to give our Target a descriptive name so it's easy to identify in task logs or when managing our infrastructure. Machine names work well, but you might prefer to name it after the service or application that you intend to deploy to it.
+We want to give our Target a descriptive name so it's easy to identify in task logs or when managing our infrastructure. Machine names work well, but you might prefer to name it after the service or application that you intend to deploy to it. We're going to use the AWS instance ID.
 
-(2:20)
+Next we assign one or more Environments and Roles. The concepts of Environments and Roles were covered in classes 1 and 2. We're going to use this Target to host the Development version of the RandomQuotes dotnet Core App from [the Octopus Samples GitHub repo](https://github.com/OctopusSamples/RandomQuotes). Hence, we'll assign this Target to the Development Environment and we'll give it the role RandomQuotes-WebServer. In this example, we aren't using a Web Proxy so we'll leave those settings alone and click SAVE.
+
+Additional resources:
+- Network troubleshooting
+- Security deep dive (Should this be a class in it's own right?)
+- Other deployment types
+
