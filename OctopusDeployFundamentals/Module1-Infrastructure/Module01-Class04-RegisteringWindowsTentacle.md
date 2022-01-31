@@ -1,6 +1,6 @@
 # Octopus Deploy: Fundamentals
 ## Module 1: Infrastructure
-### Class 3: Creating a Windows Tentacle Deployment Target
+### Class 4: Registering a Windows Tentacle Deployment Target
 
 NOTE: The existing fundamentals video below is there as a placeholder. It includes a bunch of the content we can use, but isn't an exact match for what I want to do with this video. We should rerecord this video before publishing.
 
