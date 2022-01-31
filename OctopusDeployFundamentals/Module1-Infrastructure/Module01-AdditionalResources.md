@@ -4,6 +4,14 @@
 
 NOTE: For now this is just links to docs pages. However, in v2 each link could be upgraded into it's own class/training video.
 
+#### Troublesooting
+
+Troubleshooting Octopus Server installation
+https://octopus.com/docs/installation/troubleshooting
+
+Troubleshooting Tentacles
+https://octopus.com/docs/infrastructure/deployment-targets/windows-targets/troubleshooting-tentacles
+
 #### Other types of Deployment Target
 
 Linux Targets
