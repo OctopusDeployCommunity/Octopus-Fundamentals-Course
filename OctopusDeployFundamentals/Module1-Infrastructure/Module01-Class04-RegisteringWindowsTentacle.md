@@ -20,7 +20,7 @@ For the Octopus Server we'll use a free Octopus Cloud trial. For the Deployment 
 
 Here is the AWS instance we used from class 3, complete with an Octopus Tentacle that we've already installed and configured.
 
-In our example, we want to use this instance to host the development version of a dotnet core web app. IIS and dotnet core have already been configured on the Target instance. If we open the Tentacle Manager and we can see that it's healthy. Now we need to register our Tentacle with the Octopus Server to enable the two-way communication between the Server and Tentacle.
+In our example, we want to use this instance to host the development version of a dotnet core web app. IIS and dotnet core have already been configured on the Target instance. If we open the Tentacle Manager we can see that it's healthy. Now we need to register our Tentacle with the Octopus Server to enable the two-way communication between the Server and Tentacle.
 
 We're going to start by navigating to the Infrastructure page in the Octopus Cloud web portal. As you can see, we've already created a couple of Environemnts called Development and Production. We covered Environment creation in Class 1 so we won't repeat ourselves here.
 
@@ -32,9 +32,9 @@ To register our Deployment Target, click ADD DEPLOYMENT TARGET.
 
 We're presented with various different options. We'll chose a Windows instance in listening mode. We discussed the difference between Listening and Polling Tentacles in Class 3.
 
-Select Windows, then hover over Listening Tentacle and click ADD. This brings us to the registration page. Enter the DNS name or IP address of our Deployment Target, as well as the port which we configured it to listen on. (10933 by default.) We aren't connecting through a Proxy so accept the defaults and click NEXT.
+Select Windows, then hover over Listening Tentacle and click ADD. This brings us to the registration page. Enter the DNS name or IP address of the Deployment Target, as well as the port which we configured it to listen on. (10933 by default.) We aren't connecting through a Proxy so accept the defaults and click NEXT.
 
-We want to give our Target a descriptive name so it's easily identifiable in task logs or when managing our infrastructure. Machine names work well, but you might prefer to name it after the service or application that you intend to deploy to it. For example, helloworld-webserver or CRM-Database. In general at Octopus we subscribe to the philosophy of treating servers like cattle, rather than pets, so it's generally wiser to think of these names like numbers or IDs, rather than using cute Lord of the Rings or Star Wars themed server naming conventions. In this case, we'll use the randomly assigned AWS instance ID, since this helps us to keep track of things across both Octopus and AWS.
+We want to give our Target a descriptive name so it's easily identifiable in task logs or when managing our infrastructure. Machine names work well, but you might prefer to name it after the service or application that you intend to deploy to it. For example, helloworld-webserver001 or CRM-Database01. In general at Octopus we subscribe to the philosophy of treating servers like cattle, rather than pets, so it's generally wiser to think of these names like numbers or IDs, rather than using cute Lord of the Rings or Star Wars themed naming conventions. In this case, we'll use the randomly assigned AWS instance ID, since this helps us to keep track of things across both Octopus and AWS.
 
 Next we assign one or more Environments and Roles. The concepts of Environments and Roles were covered in classes 1 and 2. We're going to use this Target to host the Development version of the RandomQuotes dotnet Core App from [the Octopus Samples GitHub repo](https://github.com/OctopusSamples/RandomQuotes). Hence, we'll assign this Target to the Development Environment and we'll give it the role RandomQuotes-WebServer. In this example, we aren't using a Web Proxy so we'll leave those settings alone and click SAVE, which brings us to the settings tab for our new Target.
 
