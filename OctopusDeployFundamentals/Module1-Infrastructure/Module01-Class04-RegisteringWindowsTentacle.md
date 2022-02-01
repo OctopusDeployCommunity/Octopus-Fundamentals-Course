@@ -50,6 +50,6 @@ Now it's your turn to register your Deployment Targets. Remember:
 
 - Think about the DevOps "Cattle vs Pets" mantra when choosing names for your Deployment Targets. Aim to give your servers systematic numbers or IDs, rather than cute names.
 - Folks with large estates or who wish to use dynamic infrastructure or embrace Chaos Engineering should learn more about automating Deployment Target registration using the Octopus API and command line tools.
-- Troubleshooting information is available in the additional resources that acompany this module.
+- Troubleshooting information is available in the additional resources that accompany this module.
 
 Thank you for watching, and happy deployments.
