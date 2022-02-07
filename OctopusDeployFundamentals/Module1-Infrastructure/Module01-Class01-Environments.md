@@ -2,19 +2,19 @@
 ## Module 1: Infrastructure
 ### Class 1: Environments
 
-Welcome to another getting started class for Octopus Deploy. This class will help you learn more about environments.
+Welcome to class 1 of this Infrastructure module for the Octopus Deploy Fundamentals training course.
+
+This class covers how to manage Environments in Octopus Deploy.
 
 [![Link to YouTube video](https://img.youtube.com/vi/tPb6CLHyNLA/0.jpg)](https://www.youtube.com/embed/tPb6CLHyNLA)
 
 ### Transcript
 
-Environments are how you organise your deployment targets into groups that represent different stages of your deployment pipeline. This class will start with a look at a pre-existing instance, to see how environments are used. It will then walk you through how to create your first environment.
+Environments are how you organise your infrastructure into groups that represent different stages of your deployment pipeline. For example, you might have a Development environment, and a Production environment.
 
-We will start using an existing instance. You get to environments by clicking on "Infrastructure", then clicking on Environments in the left menu. For this existing instance I have six environments:
+Let's create your first environment.
 
-I stated earlier Environments are used to organise your deployment targets. The development environment has three targets, while the test environment has eleven targets.
-
-Now let's create your first environment. To make things easier, the onboarding wizard provides a shortcut to the environments page. 
+In this example, we're using a new Cloud instance of Octopus Deploy. To make things easier, the onboarding wizard provides a shortcut to the environments page. 
 
 From here we can click the "ADD ENVIRONMENT" button in the top right corner.
 
@@ -22,9 +22,9 @@ This will bring up the "Add Environment" modal window. To make it easier, we've 
 
 Once you are done, click "SAVE" and the environment will be created.
 
-You have just created your first environment. If you'd like, you can add a description to help other users understand the purpose of this environment. This is useful if the environment's name isn't clear to everyone, or if it has an unusual purpose.
+You have just created your first environment. We can repeat the process to create a second Environment.
 
-That description will appear in the environment list page. Expanding the environment, will show the description previously entered.
+You should order your environments in chronological order. To reorder your environments, click the three-dot menu button and select Reorder. Drag your environments into the desired order, and click save.
 
 Now it is your turn to create your first environment. Here are some recommendations to keep in mind as you do that in your own instance.
 
