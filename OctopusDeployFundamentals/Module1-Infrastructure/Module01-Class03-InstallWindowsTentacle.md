@@ -17,7 +17,7 @@ We will cover:
 
 - Downloading the tentacle installer
 - Installing the tentacle on Windows
-- Configuring the tentacle in Listening mode
+- and the difference between listening and polling tentacles, and when you should use each
 
 You can download the Tentacle installer from Ocotpus.com by navigating to the Downloads page under the resources menu. Find the tentacle in the list of tools and click on the download button.
 
