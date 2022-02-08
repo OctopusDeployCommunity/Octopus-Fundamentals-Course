@@ -21,15 +21,17 @@ We will cover:
 
 You can download the Tentacle installer from Ocotpus.com by navigating to the Downloads page under the resources menu. Find the tentacle in the list of tools and click on the download button.
 
-If you use Chocolatey to manage your software installs, you can install the tentacle with the command provided. Otherwise, you can use the direct download links below.
+If you use Chocolatey to manage your software installs, you can install the tentacle with the command provided.
 
-Once it's downloaded, run the installer to start the setup wizard. Accept the licence agreement and provide an install directory. Once the Tentacle is installer, the Tentacle Manager will open. Cloci "Get Started".
+Otherwise, you can use the direct download links below.
+
+Once it's downloaded, run the installer to start the setup wizard. Accept the licence agreement and provide an install directory. Once the Tentacle is installed, the Tentacle Manager will open. Click "Get Started".
 
 The first choice is whether to set up the tentacle in listening or polling mode. A listening tentacle will passively listen for tasks requested by the Octopus Server. This is the recommended communitation style if you can allow connections from the Octopus Server to the Tentacle. If the Octopus Server cannot send requests to the tentacle, for example due to a firewal policy or when the Tentacle machine lacks a static IP address or DNS name, you should consider using polling mode instead.
 
 Next, select where the Tentacle will store logs and applicatons.
 
-On the Listening Tentacle tab, you can choose which port the Tentcle will listen for commands on. You can use the Octopus default of 10933, or you can choose a different port. You also need to provide the Thumbprint from your Octopus Server. This is the certificate thumbprint of your Octopus Server and ensures that the Tentacle will only accept communication from a server providing that Thumbprint.
+On the Listening Tentacle tab, you can choose which port the Tentacle will listen for commands on. You can use the Octopus default of 10933, or you can choose a different port. You also need to provide the Thumbprint from your Octopus Server. This ensures the Tentacle will only trust your Octopus Server.
 
 You can find your Octopus Server Thumbprint by logging into Octopus and navigating to Configuration / Thumbprint.
 
