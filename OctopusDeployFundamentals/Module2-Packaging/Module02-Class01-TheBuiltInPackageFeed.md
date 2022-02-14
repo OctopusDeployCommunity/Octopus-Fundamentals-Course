@@ -14,15 +14,15 @@ We'll cover:
 - Your options for hosting packages
 - How to upload a package to the built-in package feed
 
-To deploy code with Octopus, you first need to package that code that's required for deployment into a format that Octopus can consume. Most often this means zipping up all the necessary files. However, depending on what you are building, you might prefer to use a different file format, such as NuGet, JAR or Tar, or even Docker images. A full list of supported formats can be found in the additional resources associated with this module.
+To deploy with Octopus, you first need to package any deployment artifacts required for deployment into a format that Octopus can consume. Most often this means zipping up all the necessary files. However, depending on what you are building, you might prefer to use a different file format, such as NuGet, JAR or Tar, or even Docker images. A full list of supported formats can be found in the additional resources associated with this module.
 
-Once Octopus has the packages, it can copy them to wherever they need to be deployed, and run any scripts required to set things up.
+Once Octopus has the packages, it can copy them to Deployment Targets, and run any scripts required to set things up.
 
-Octopus comes with a built-in package repository. You can navigate to the built in repository in the Octopus Deploy web portal by navigating to Library, and then Packages. For most users, the easiest way to get started is to upload their files directly in the browser. You can do this by clicking UPLOAD PACKAGE and drag/dropping your packages like this.
+Octopus comes with a built-in package repository. You can navigate to the built-in repository in the Octopus Deploy web portal by navigating to Library, and then Packages. For most users, the easiest way to get started is to upload their files directly in the browser. You can do this by clicking UPLOAD PACKAGE and drag/dropping your packages like this.
 
-I created this package by cloning the RandomQuotes GitHub repository from Octopus Samples, building the solution, and zipping up the build output. However, Octopus provides various tools for automating this process. For more information about packaging your code, take a look atthe additional resources associated with this module.
+I created this package by cloning the RandomQuotes GitHub repository from Octopus Samples, building the solution, and zipping up the build output. However, Octopus provides various tools for automating this process. For more information about packaging your code, take a look at the additional resources associated with this module.
 
-Note that we've used a specific naming convention so that Octopus can interpret the version of our code. We recommend adopting a consistent versioning convention, such as major version dot minor version dot build number.
+Note that we've used a specific naming convention so that Octopus can interpret the version number of our code. We recommend adopting a consistent versioning convention, such as major version dot minor version dot build number.
 
 While uploading packages manually is handy for a quick proof of concept, for most real-world implementations of Octopus Deploy, it's recommended to automate the packaging and publishing process. Most users automate this using build servers, such as TeamCity, Jenkins, Azure DevOps or GitHub Actions. Code updates are automatically compiled and tested. Then, assuming all the tests pass, the build artifacts are automatically packaged and published to Octopus for deployment.
 
