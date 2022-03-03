@@ -73,6 +73,11 @@ Next, we provide our script. Perhaps our scripts come from source control and ha
 
 [In-line source code: Write-Output "Hello World"]
 
+
+TO DO: Finish this script.
+
+
+
 Tips:
 - Include everything required to run the code. Make no assumptions about the target environment. Aim to include steps to both install and configure any dependencies. Include tests to ensure that everything is set up as expected.
 - Take advantage of run conditions
