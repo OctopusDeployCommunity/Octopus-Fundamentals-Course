@@ -1,6 +1,6 @@
 # Octopus Deploy: Fundamentals
 ## Module 3: Projects (Part 1, Deployments)
-### Class 2: Releases and Deployments
+### Class 3: Releases and Deployments
 
 Welcome to module 3, class 2 of the Octopus Deploy Fundamentals training course.
 

@@ -1,6 +1,6 @@
 # Octopus Deploy: Fundamentals
 ## Module 3: Projects (Part 1, Deployments)
-### Class 4: Channels and Lifecycles
+### Class 5: Channels and Lifecycles
 
 Welcome to module 3, class 4 of the Octopus Deploy Fundamentals training course.
 

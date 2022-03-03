@@ -1,6 +1,6 @@
 # Octopus Deploy: Fundamentals
 ## Module 3: Projects (Part 1, Deployments)
-### Class 1: The Deployment Process
+### Class 1: Projects and Project Groups
 
 Welcome to module 3, class 1 of the Octopus Deploy Fundamentals training course.
 

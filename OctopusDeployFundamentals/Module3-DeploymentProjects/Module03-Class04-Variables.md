@@ -1,7 +1,7 @@
 # Octopus Deploy: Fundamentals
 ## Module 3: Projects (Part 1, Deployments)
 
-### Class 3: Variables
+### Class 4: Variables
 
 Welcome to module 3, class 3 of the Octopus Deploy Fundamentals training course.
 
