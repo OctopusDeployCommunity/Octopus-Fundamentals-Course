@@ -9,7 +9,7 @@ This class explains how a deployment process is defined in Octopus Deploy.
 We'll cover,
 - [A consistent, repeatable deployment process] The Octopus philosophy of using a consistent, repeatable processes for deployment to each environment.
 - [Steps /Run a Script /Deploy a Package] Deployment steps, specifically including the "Run a Script" and "Deploy a Package" steps.
-- [Built-in, Community and Custom Step Templates] And the difference between built-in, community and custom step templates.
+- [Built-in vs Community Step Templates] And the difference between built-in and community step templates.
 
 [![Link to YouTube video](https://img.youtube.com/vi/0oWRg_TxWxM/0.jpg)](https://www.youtube.com/embed/0oWRg_TxWxM)
 
