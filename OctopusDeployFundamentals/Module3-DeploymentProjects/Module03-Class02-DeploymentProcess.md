@@ -19,7 +19,7 @@ Let's look at an existing deployment process.
 
 [DEMO]
 
-This is Octopus Samples, a public Octopus instance, with various demo projects to explore. You can access it at [samples dot octops dot app](samples.octopus.app).
+This is Octopus Samples, a public Octopus instance, with various demo projects to explore. You can access it at [samples dot octopus dot app](samples.octopus.app).
 
 Let's select the Octo Pet Shop - Raw YAML Project, from the Azure Project Group.
 
