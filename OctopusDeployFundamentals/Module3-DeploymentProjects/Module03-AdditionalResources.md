@@ -6,14 +6,10 @@ TO DO
 
 #### Step Templates
 
-Library.Octopus.com
+- The Octopus Communty Step Template Library: Library.Octopus.com
+- Some docs on Community step templates: www.someresource.todo.later
 
-Some docs on Community step templates
+#### Automation
 
-#### Another header
-
-Another thing
-https://another.link.com
-
-Yet another thing
-https://yet.another.link.com
+- Automating release creation: www.someresource.todo.later
+- Automating deployments: www.someresource.todo.later
