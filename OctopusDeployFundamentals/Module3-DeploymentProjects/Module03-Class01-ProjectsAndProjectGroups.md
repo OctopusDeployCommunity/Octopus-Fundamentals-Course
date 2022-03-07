@@ -2,7 +2,7 @@
 ## Module 3: Projects (Part 1, Deployments)
 ### Class 1: Projects and Project Groups
 
-Welcome to module 3, class 1 of the Octopus Deploy Fundamentals training course.
+Welcome to module 3, class 1 of this Octopus Deploy Fundamentals training course.
 
 In this module we'll explain how to deploy the package we published in module 2, to the infrastructure we configured in module 1.
 

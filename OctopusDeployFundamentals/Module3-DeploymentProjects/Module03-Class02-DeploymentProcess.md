@@ -2,7 +2,7 @@
 ## Module 3: Projects (Part 1, Deployments)
 ### Class 2: The Deployment Process
 
-Welcome to module 3, class 2 of the Octopus Deploy Fundamentals training course.
+Welcome to module 3, class 2 of this Octopus Deploy Fundamentals training course.
 
 This class explains how a deployment process is defined in Octopus Deploy.
 
