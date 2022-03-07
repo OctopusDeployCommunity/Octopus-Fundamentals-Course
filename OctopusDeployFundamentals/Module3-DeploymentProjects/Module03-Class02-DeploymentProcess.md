@@ -21,7 +21,7 @@ Let's look at an existing deployment process.
 
 This is Octopus Samples, a public Octopus instance, with various demo projects to explore. You can access it at [samples dot octopus dot app](samples.octopus.app).
 
-Let's select the Octo Pet Shop - Raw YAML Project, from the Azure Project Group.
+Let's select the "Octo Pet Shop - Raw YAML" Project, from the "Azure" Project Group.
 
 [SELECT OCTO PET SHOP PROJECT]
 
@@ -33,9 +33,9 @@ We can see the Project Deployment Process by clicking Process.
 
 A deployment process can be as complicated, or as simple as you like. For example, here we can see Notification steps, Manual Intervention steps and steps that execute the code deployment - in this case deploying a bunch of Kubernetes YAML.
 
-Note that we use the same steps when deploying to each environment. Those Kubernetes YAML steps will be executed exactly the same way in Development as in Production. This builds reliability and consistency into the Deployment Process. Imagine, for example, the administrative toil of duplicating the configuration for each environment. A subtle, missed inconsistency could easily cause unexpected problems in Production.
+Note that we use the same steps when deploying to each environment. Those Kubernetes YAML steps will be executed exactly the same way in Development as in Production. This is consistent with the "Build Once, Deploy Many Times" mantra, building reliability and consistency into the Deployment Process. Imagine, for example, the administrative toil of duplicating the configuration for each environment. A subtle, missed inconsistency could easily cause unexpected problems in Production.
 
-However, while the same steps generally get deployed consistently to all environments, there is some flexibility. Let's imagine we're continuously deploying all source control updates to Development, but we're deploying significantly less frequently to Production. In this case, we don't want to drown our team with notifications about every deployment to the Development environment. Equally, it wouldn't make sense to ask the business owners or DBAs to manually approve dozens, or even hundreds, of deploys each day. 
+However, while the same steps generally get deployed consistently to all environments, there is some flexibility. Let's imagine we're continuously deploying every source control update to Development, but we're deploying significantly less frequently to Production. In this case, we don't want to drown our team with notifications about every deployment to the Development environment. Equally, it wouldn't make sense to ask the business owners or DBAs to manually approve dozens, or even hundreds, of deploys each day. 
 
 [Highlight SCOPE]
 
@@ -53,11 +53,11 @@ We add a step to our Process by clicking ADD STEP.
 
 [Click ADD STEP]
 
-We're presented with a selection of predefined step templates. The simplest thing we can do is execute a raw script on our deployment target. Whatever you want to do, if you can script it in PowerShell, C#, Bash or F#, you can deploy it with Octopus Deploy.
+We're presented with a selection of predefined Step Templates. The simplest thing we can do is execute a raw script on our deployment target. Whatever you want to do, if you can script it in PowerShell, Bash, C#, or F#, you can deploy it with Octopus Deploy.
 
 [Select Script]
 
-Octopus provides various steps for running scripts, depending on where you host your stuff. We'll be deploying the the Windows Tentacles we configured in Module 1, so we'll select the basic "Run a Script" option.
+Octopus provides various Step Templates for running scripts, depending on where you host your stuff. We'll be deploying the the Windows Tentacles we configured in Module 1, so we'll select the basic "Run a Script" Template.
 
 [Click ADD]
 
@@ -69,7 +69,7 @@ Then we specify where we want to execute this script. Let's run our script on ea
 
 [Enter details]
 
-Next, we provide our script. Perhaps our scripts comes from source control and has been included in a package. Alternatively, we can add the script here.
+Next, we provide the script that we want to execute. Perhaps our script comes from source control and has been included in a package. Alternatively, we can add the script here.
 
 [In-line source code: Write-Output "Hello World"]
 
@@ -81,7 +81,7 @@ We've successfully created our first Deployment Process! We'll run the deploymen
 
 [Open the RandomQuotes Project]
 
-We're going to use this Project to deploy the RandomQuotes package from module 2, to our Infrastructure from module 1.
+We're going to use this Project to deploy the RandomQuotes package we uploaded in module 2, to our Infrastructure we configured module 1.
 
 [Click Process / ADD STEP]
 
@@ -91,7 +91,7 @@ This time we'll look through the "Package" Step Templates and select Deploy to I
 
 Before adding this Step, let's take a moment to observe that this Step Template is maintained by the team at Octopus. Octopus provides a large selection of the most popular Step Templates out of the box. For example, there are similar steps here for deploying packages to NGINX, Azure and AWS.
 
-In addition to the built-in step templates, Octopus also maintains a community Step Template Library. Many Octopus users and partners have shared their own Step Templates. For example, perhaps you want to deploy an AWS Lambda Function, or you'd like to use Chocolatey to ensure some dependency was installed on the Deployment Target, well, someone's already scripted those tasks out and shared them with the community. You can explore all community step templates, including the source code, at [Library dot Octopus dot com](https://library.octopus.com/listing). 
+In addition to the built-in step templates, Octopus also maintains a community Step Template Library. Many Octopus users and partners have shared their own Step Templates. For example, perhaps you want to deploy an AWS Lambda Function, or you'd like to use Chocolatey to ensure some dependency was installed on the Deployment Target, well, someone's already scripted those tasks and shared a Template with the community. You can explore all community Step Templates, including the source code, at [Library dot Octopus dot com](https://library.octopus.com/listing). 
 
 [Fade to Library.Octopus.com]
 
@@ -107,7 +107,7 @@ This Step Template needs to be executed on Deployment Targets, and we want it to
 
 [Add role]
 
-Now we provide the package details. In Module 2 we uploaded our package to the built-in feed. The Octopus interpreted the Package ID from the name of the package.
+Now we provide the package details. In Module 2 we uploaded a package to the built-in feed. Octopus interpreted the Package ID and version number from the file name of the package. We can search for the Package ID here.
 
 [Select RandomQuotes package from builtin feed]
 
@@ -129,7 +129,7 @@ Next come a couple of more advanced features. We'll cover .NET Configuration Var
 
 [Deselect .NET Configuration Variables]
 
-Octopus supports .NET Configuration Transforms out of the box. If your project includes transformation files in the format either star dot release dot config, or "EnvironmentName" dot release dot config, these configuration transformations will be run during deployment.
+Octopus supports .NET Configuration Transforms out of the box. By selecting this option, if your project includes transformation files in the form either star dot release dot config, or "EnvironmentName" dot release dot config, these configuration transformations will be run during deployment.
 
 We can toggle on or off further additional features by selecting the Configure Features button.
 
@@ -143,8 +143,8 @@ And we're done. We've added a Step to our Process to deploy our RandomQuotes pac
 
 Remember:
 
-- [Deploy all the things] When building configuring your deployment process, aim to include everything required to run the code. MDon't make any assumptions about your target environment. Ideally, include steps to install and configure any dependencies.
-- [Include smoke tests] After any Steps that deploy your code, add Steps to execute some smoke tests to verify that everything is set up as expected.
+- [Avoid assumptions] When creating your deployment process, don't make any assumptions about your target environment. Aim to include steps to install and configure any dependencies. Or, at the very least, verify that those dependencies have already been pre-intalled and set up appropriately.
+- [Include smoke tests] After any Steps that deploy your code, add Steps to execute some smoke tests to verify that everything is set up and working as expected.
 - [Use Run conditions] Take advantage of run conditions to toggle which steps are executed in each environment. It's far preferable to maintain a single process that can be deployed to all environments, than to maintain separate processes for deploying to different environments.  
 
 Thanks for watching, and happy deployments!
