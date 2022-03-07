@@ -17,4 +17,4 @@ This class covers...
 
 ### Transcript
 
-
+Variables snapshotted in releases.
