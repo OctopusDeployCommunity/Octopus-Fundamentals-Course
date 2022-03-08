@@ -13,3 +13,8 @@ TO DO
 
 - Automating release creation: www.someresource.todo.later
 - Automating deployments: www.someresource.todo.later
+
+#### Variables
+
+- Variable Syntax: www.someresource.todo.later
+- System Variables: www.someresource.todo.later

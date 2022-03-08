@@ -27,7 +27,7 @@ Let's create our first Project and Project Group.
 
 Navigate to the Pojects page in the Octopus Deploy interface and click "ADD GROUP", enter a name and click "SAVE".
 
-[Name is "Octopus Deploy Fundamentals Demos"]
+[Name is "Fundamentals Demos"]
 
 Now click "ADD PROJECT", provide a name for this component, and click "SAVE". You've just created your first project.
 
