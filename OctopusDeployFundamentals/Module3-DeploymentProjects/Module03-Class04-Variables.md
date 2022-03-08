@@ -62,14 +62,65 @@ All done. Now we need to reference our variable from the script in our process.
 
 [Click Process, open the Step, navigate to the script block]
 
-Next to the script block, we can see the Variable Insert Tool on the right-hand side. Depending on the scripting language we are using, the syntax for referencing Octopus variables will be a little different. Clicking the Variable Insert Tool will display our Project Variables, along with other Octopus System Variables. We'll talk more about System Variables later, but right now we'll select the Variable we just configured and Octopus will add it to the script block using the necessary syntax. For more information about the various syntax for referencing variables in your given context, check out the additional resources associated with this module.
+Next to the script block, we can see the Variable Insert Tool on the right-hand side.
 
-Let's just tidy up the script and click save.
+Clicking the Variable Insert Tool will display our Project Variables, along with other Octopus System Variables. We'll talk more about System Variables later.
+
+Selecting our variable adds it to the script, with the appropriate syntax. For more information about syntax in various languages, check out the additional resources associated with this module.
+
+Let's tidy up the script and click save.
 
 [Tidy up script, click SAVE]
 
-Now when we execute a Deployment, the appropriate value will be used when we deploy to each Environment.
+Now when we execute a Deployment, the appropriate greeting will be used in each Environment.
 
+[Fade to brief demos of deployments to Dev and Prod, reviewing the logs for the message in each environment]
+
+This is all well and good for a Hello World example, but how might we use these variables with something a little more complicated, such as a website.
+
+[Fade to RandomQuotes website, as deployed without any Structured Configuration Variables]
+
+Here's the website we deployed in the last class. If we take a look at the footer, it's displaying the environment name and the version number. However, this version number is incorrect and the Environment name (Dev) doesn't match our configuration in Octopus Deploy (where we used the unabreviated "Development").
+
+[Fade to this GitHub page: https://github.com/OctopusSamples/RandomQuotes/blob/master/RandomQuotes/appsettings.json]
+
+That's because the website is still using default values defined in source control. We need to replace these default values with Octopus Variables when we execute deployments.
+
+[Fade to Process for RandomQuotes Project]
+
+Here's the Process we set up in the previous class to deploy the RandomQuotes website. When we configured this project, we skipped over the Structured Configuration Variables options.
+
+[Scroll down, highlight the Structured Configuration Variables section]
+
+Let's update the Project to reference the file that contains our configuration variables. Octopus supports JSON, YAML, XML and Java Properties files.
+
+[Type appsettings.json, and save.]
+
+Now let's hop over to the Variables page to enter our values.
+
+[Click Variables]
+
+We can use this syntax to reference the variables in our configuration file.
+
+[Add AppSettings:EnvironmentName]
+
+As for the value, we could hard code it like we did before. However, in retrospect this feels a bit cumbersome. Perhaps in the future we'll rename an Environment or add a new one? It would be better to use the built-in Octopus Variable, Octopus.Environment.Name, to automatically populate this value for us.
+
+[Add value #{Octopus.Environment.Name}]
+
+[Then, add a new variable: AppSettings:AppVersion]
+
+Similarly, we can use an Octopus Variable to pass through the version number for either the Package or the Octopus Release.
+
+[Add value #{Octopus.Release.Number}]
+
+Links to references of useful system variables, as well as relevant variable syntax, can be found in the additional resources.
+
+Now, let's redploy the website. Remember, since we've changed our Process and our Variables, it's necessary to create a new Release. If we were to re-deploy the old release, we'd be redeploying the old Process and Variables which would not reflect the changes we've just made.
+
+[Create release, redeploy to dev, refresh wesite, highlight the new environment name and version number]
+
+[To do: VARIABLE GROUPS]
 
 Tips:
 
