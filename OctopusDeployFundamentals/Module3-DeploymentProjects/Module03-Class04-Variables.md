@@ -126,7 +126,7 @@ Now, let's redeploy the website. Remember, since we've changed our Process and o
 
 [Create release, redeploy to development, refresh website, highlight the new environment name and version number]
 
-Finally, there are times when we might want to share variables across multiple Projects. For example, perhaps we have some standard conventions for logging and we want to apply them globally.
+Finally, there are times when we might want to share Variables across multiple Projects. For example, perhaps we have some standard conventions for logging and we want to apply them globally.
 
 Rather than duplicating our configuration across many Projects, we can head to the Library page and create a Variable Set.
 
