@@ -160,7 +160,7 @@ Variables are used to provide flexibility and privacy with important deployment 
 - [Types, Scoping, Sensitivity, and Prompting] Octopus supports various features to support different Variable Types, Scopes, Encryption, and the ability to set values when triggering Deployments.
 - [System variables] As well as setting your own variables, you can, and should, make use of the many built-in System Variables.
 - [Variables within variables] You can reference Variables within other Variables.
-- [Structured Configuration Variables] As well as referencing Variables within your scripts, you can also import them into configuration files. 
+- [Structured Configuration Variables] As well as referencing Variables within your scripts, you can also import them directly into configuration files within your applications. 
 - [Library Variable Sets] You can use Library Variable Sets to manage global Variables in a single location, avoiding the need to duplicate common configuration details across multiple Projects.
 
 Let's finish with a few tips to remember when creating your own variables.
