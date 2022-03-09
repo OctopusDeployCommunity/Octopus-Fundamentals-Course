@@ -132,7 +132,7 @@ Rather than duplicating our configuration across many Projects, we can head to t
 
 [Go to Library, Variable Sets, click ADD NEW VARIABLE SET]
 
-We can give the Library set a name and a description.
+We can give the Variable Set a name and a description.
 
 [Name: Logging. Description: Default config for logging.]
 
