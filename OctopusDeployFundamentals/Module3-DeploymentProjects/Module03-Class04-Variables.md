@@ -26,7 +26,7 @@ Let's start by taking another look at the Hello World project we created earlier
 
 [Fade to process page for Hello World Project]
 
-The Process for this Project has a single Step that runs a PowerShell script to log a greeting. Let's imagine that we wanted to issue a different greeting in each environment. To do that, let's navigate to the Variables page.
+The Process for this Project has a single Step that runs a PowerShell script to log a greeting. Let's imagine that we wanted to log a different greeting in each environment. To do that, let's navigate to the Variables page.
 
 [Click Variables]
 
@@ -42,7 +42,7 @@ and while we're here, let's make a note that we can select a specific Variable T
 
 [Set the value to sensitive, then undo it]
 
-We can also open a larger editor for more complicated Variables. As well as a larger text editor, this includes additional options such as adding descriptions for our variables or enabling users to prompt for variables when triggering deployments.
+We can also open a larger editor for more complicated Variables. As well as a larger text editor, this includes additional options such as adding descriptions for our variables or enabling users to provide their own values when triggering deployments.
 
 [Open editor, click DONE]
 
@@ -54,15 +54,15 @@ While we're at it, let's add another value for Production.
 
 [Add another value for Production, pause while scoping]
 
-In this case, we are scoping our variable based on the Environment we are deployling to. However, it's also possible to scope in other ways. For example, we could instead scope variables to specific Deployment Targets or Target Roles.
+In this case, we are scoping our variable based on the Environment we are deployling to. However, it's also possible to scope in other ways. For example, we could scope to specific Deployment Targets or Target Roles.
 
 [Finish adding the variable, click SAVE]
 
-All done. Now we need to reference our variable from the script in our process.
+All done. Now we need to reference our Variable from the script in our process.
 
 [Click Process, open the Step, navigate to the script block]
 
-Next to the script block, we can see the Variable Insert Tool on the right-hand side.
+Next to the script block, we can see the Variable Insert Tool.
 
 Clicking the Variable Insert Tool will display our Project Variables, along with other Octopus System Variables. We'll talk more about System Variables later.
 
@@ -76,7 +76,7 @@ Now when we execute a Deployment, the appropriate greeting will be used in each 
 
 [Fade to brief demos of deployments to Dev and Prod, reviewing the logs for the message in each environment]
 
-This is all well and good for a Hello World example, but how might we use these variables with something a little more complicated, such as a website.
+This is all well and good for a simple, Hello World, example, but how would we use Variables when deploying a real website?
 
 [Fade to RandomQuotes website, as deployed without any Structured Configuration Variables]
 
@@ -84,7 +84,7 @@ Here's the website we deployed in the last class. If we take a look at the foote
 
 [Fade to this GitHub page: https://github.com/OctopusSamples/RandomQuotes/blob/master/RandomQuotes/appsettings.json]
 
-That's because the website is still using default values defined in source control. We need to replace these default values with Octopus Variables when we execute deployments.
+That's because the website is still using default values defined here, in source control. We need to replace these default values with Octopus Variables when we execute Deployments.
 
 [Fade to Process for RandomQuotes Project]
 
@@ -92,7 +92,7 @@ Here's the Process we set up in the previous class to deploy the RandomQuotes we
 
 [Scroll down, highlight the Structured Configuration Variables section]
 
-Let's update the Project to reference the file that contains our configuration variables. Octopus supports JSON, YAML, XML and Java Properties files.
+Let's update the Project to reference the file that contains our configuration variables. Octopus can update values in JSON, YAML, XML and Java Properties files.
 
 [Type appsettings.json, and save.]
 
@@ -104,27 +104,62 @@ We can use this syntax to reference the variables in our configuration file.
 
 [Add AppSettings:EnvironmentName]
 
-As for the value, we could hard code it like we did before. However, in retrospect this feels a bit cumbersome. Perhaps in the future we'll rename an Environment or add a new one? It would be better to use the built-in Octopus Variable, Octopus.Environment.Name, to automatically populate this value for us.
+As for the value, we could hard code it like we did before, entering in different values and scoping them to different Environments. However, in retrospect this feels a bit cumbersome. Perhaps in the future we'll rename an Environment or add a new one? It would be better to use the built-in Octopus Variable, Octopus.Environment.Name, to automatically populate this value for us.
 
 [Add value #{Octopus.Environment.Name}]
 
-[Then, add a new variable: AppSettings:AppVersion]
+For the version number, we can use another System Variable to reference the Release number.
 
-Similarly, we can use an Octopus Variable to pass through the version number for either the Package or the Octopus Release.
-
-[Add value #{Octopus.Release.Number}]
+[Add a new variable: AppSettings:AppVersion and add value #{Octopus.Release.Number}]
 
 Links to references of useful system variables, as well as relevant variable syntax, can be found in the additional resources.
 
-Now, let's redploy the website. Remember, since we've changed our Process and our Variables, it's necessary to create a new Release. If we were to re-deploy the old release, we'd be redeploying the old Process and Variables which would not reflect the changes we've just made.
+Now, let's redeploy the website. Remember, since we've changed our Process and our Variables, it's necessary to create a new Release. If we were to re-deploy the old release, we'd be redeploying the old Process and Variables which would not reflect the changes we've just made.
 
 [Create release, redeploy to dev, refresh wesite, highlight the new environment name and version number]
 
-[To do: VARIABLE GROUPS]
+Finally, there are times when we might want to share variables across multiple Projects. For example, perhaps we have some standard conventions for logging and we want to apply them globally.
 
-Tips:
+Rather than duplicating our configuration across many Projects, we can head to the Library page and create a Variable Set.
 
-- Namesspace
-- Use groups
-- Keep var numbers low
-https://octopus.com/docs/projects/variables
+[Go to Library, Variable Sets, click ADD NEW VARIABLE SET]
+
+We can give the Library set a name and a description.
+
+[Name: Logging. Description: Default config for logging.]
+
+Let's add a couple of variables to our set.
+
+[Create variables:
+- Logging.Level: Info
+- Logging.Location: \\logs\#{Octopus.Environment.Name}\#{Octopus.Project.Name}
+SAVE
+]
+
+Note that you can reference either System Variables, or your own Variables within other variables.
+
+Let's go back to our Project and include this Variable Set.
+
+[Click Projects / RandomQuotes / Variables / Library Sets / INCLUDE LIBRARY SET / Select Logging / Click SAVE / Expand the Logging Variable Set to reveal values]
+
+Great, now this project can access Variables that are set at a global level.
+
+We've covered a lot of details in this class, so let's recap:
+
+Variables are used to provide flexibility and privacy with important deployment details.
+
+- [Project Variables] Typically we use Project Variables to provide sensitive details, or details that change depending on the context.
+- [Types, Scoping, Sensitivity, and Prompting] Octopus supports various features to support different Variable Types, Scopes, Encryption, and the ability to set values when triggering Deployments.
+- [System variables] As well as setting your own variables, you can, and should, make use of the many built-in System Variables.
+- [Variables within variables] You can reference Variables within other Variables.
+- [Structured Configuration Variables] As well as referencing Variables within your scripts, you can also import them into configuration files within your applications. 
+- [Library Variable Sets] You can use Library Variable Sets to manage global Variables in a single location, avoiding the need to duplicate common configuration details across multiple Projects.
+
+Let's finish with a few tips to remember when creating your own variables.
+
+- [Use descriptive variable names] Use descriptive variable names, not only for your convenience, but also for the sake of others who may need to understand how and why your variables are used.
+- [Namespace your variables] Always namesspace your variables. The variable "password" is fairly generic, while the variable SQLServer.Admin.Password provides much more context. Also, it's a good idea to try and avoid re-using the same variable names across multiple Projects and Library Sets. It's generally a good idea to the Project or Variable Set name for clarity and to avoid bugs associated with overloaded terms. 
+- [Use Variable Sets] Remember to use Variable Sets for any values that are likely to be useful globally. Over time this can significantly reduce duplication and administrative toil.
+- [Keep Variable Numbers Low] And finally, while Variables critical for using Octopus effectively, it's possible to overuse them. If you have many configuration settings for your application and are using a variable for each value, it's possible that Octopus may not be the best place for those values. Consider whether those settings are mostly static or whether it's safe to store the values in clear text. If so, it might be worth considering using an external store, source control repository, configuration management system or a database to hold this information. Generally, for Deployment purposes, it's best to use Octopus Variables primarily to hold information associated with deploying software, rather than configuring it.
+
+Thanks for watching, and happy deployments!
