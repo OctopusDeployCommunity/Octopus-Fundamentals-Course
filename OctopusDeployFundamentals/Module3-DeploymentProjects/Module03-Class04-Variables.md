@@ -96,7 +96,7 @@ When we configured this project, we skipped over the Structured Configuration Va
 
 Let's update the Project to reference the file that contains our configuration variables. Octopus can update values in JSON, YAML, XML and Java Properties files.
 
-Octopus expects the relative path to the configurtation file from the route of the Package. Since our configuration file is in the route of our package, we only need the file name.
+Octopus expects the relative path to the configuration file from the route of the Package. Since our configuration file is in the route of our package, we only need the file name.
 
 [Type appsettings.json, and save.]
 
@@ -108,9 +108,13 @@ We can use this syntax to reference the variables in our configuration file.
 
 [Add AppSettings:EnvironmentName]
 
-As for the value, we could hard code it like we did before, entering in different values and scoping them to different Environments. However, in retrospect this feels a bit cumbersome. Perhaps in the future we'll rename an Environment or add a new one? It would be better to use the built-in Octopus System Variable, Octopus.Environment.Name, to automatically populate this value for us.
+As for the value, we could hard code it like we did before, entering in different values and scoping them to different Environments. 
 
-[Add value #{Octopus.Environment.Name}]
+[Hard code value "Development" and scope it to the Development environment]
+
+However, in retrospect this feels a bit cumbersome. Perhaps in the future we'll rename an Environment or add a new one? It would be better to use the built-in Octopus System Variable, Octopus.Environment.Name, to automatically populate this value for us.
+
+[Replace variable with value #{Octopus.Environment.Name}]
 
 For the version number, we can use another System Variable to reference the Release number.
 
