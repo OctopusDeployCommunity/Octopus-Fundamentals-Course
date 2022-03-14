@@ -9,7 +9,7 @@ In this class, we'll be learning about Releases and Deployments.
 First, a few definitions.
 
 - [Releases] A Release is a snapshot of the Deployment Process at a specific time. Releases also includes a point-in-time snapshot of any associated assetts, such as any Packages, Scripts, and Variables. (Note that we'll be covering Variables in the next class, but this is important so it's appropriate to call it out now.) 
-- [Deployments] When you Deploy a Release, you are executing the Depleoyment Process, with all the associated details, as they existed when the Release was created.
+- [Deployments] When you Deploy a Release, you are executing the Deployment Process, with all the associated details, as they existed when the Release was created.
 
 [![Link to YouTube video](https://img.youtube.com/vi/syfl59pR4ZU/0.jpg)](https://www.youtube.com/embed/syfl59pR4ZU)
 
@@ -97,11 +97,11 @@ The website includes a footer with the version number and environment name. Howe
 
 In the next class we'll talk about how to solve this problem with Variables. Then we'll go back and refine our process to ensure the right information is displayed on the website.
 
-Tips:
+Let's finish this class with a few tips for managing your own Releases and Deployments.
 
 - [After making changes, create a new Release] Since Releases are a snapshot in time, if any part of the Deployment Process is modified, including any Variables (which we'll be covering in the next class), it's necessary to create a new Release. It's important to understand this since one of the most common mistakes people make when setting up their first Deployment Process is to change some setting, forget to create a new Release, and then get confused when it doesn't appear that the setting has been updated. In fact, everything is working exactly as intended. The Release uses the old, snapshotted configuration. Remember: after changing some project setting, always create a new Release.
 - [Automate Release creation] Everything we've done in this class from the Octopus Web Interface, can be automated using the Octopus API or command line tools. One popular technique is to automate the Release creation as part of a CI build process. This ensures that release notes and versions are handled consistently and significantly reduces the administrative burden.
-- [Automate Deployments] If you have an environment that's intended to be always up to date with the latest source code, you can either configure Octopus to automatically trigger Deployments to given environments as soon as new Releases are created, or you can use the API or command line to trigger an OCtopus Deployment from your build server. This ensures that your continuous integration process is consistent with your production deployments. This is simpler and safer than maintaining separate processes for build and production.
+- [Automate Deployment Triggers] If you have an environment that's intended to be always up to date with the latest source code, you can either configure Octopus to automatically trigger Deployments to given environments as soon as new Releases are created, or you can use the API or command line to trigger an OCtopus Deployment from your build server. This ensures that your continuous integration process is consistent with your production deployments. This is simpler and safer than maintaining separate processes for build and production.
 
 For more information about automating either Releases or Deployments, check out the Additional Resources, associated with this module.
 
