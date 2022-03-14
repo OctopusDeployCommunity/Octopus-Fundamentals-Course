@@ -4,7 +4,7 @@
 
 Welcome to module 3, class 1 of this Octopus Deploy Fundamentals training course.
 
-In this module we'll explain how to deploy the package we published in module 2, to the infrastructure we configured in module 1.
+In this module we'll explain how to deploy the Package we uploaded in module 2, to the Infrastructure we configured in module 1.
 
 In class 1, we'll introduce the concepts of Projects and Project Groups.
 
@@ -15,17 +15,31 @@ NOTE: Replace this link with the new video!
 
 Projects are where you define the process for deploying your software. They are also used for managing runbooks for general operations tasks associated with that software. However, in this module we'll be focussing on deployment, rather than operations tasks.
 
-[Slides]
+[Blank slide]
 
-Projects work best when they are small and focussed. It's tempting to add all the components of an application (APIs, UIs, databases etc) to a single project. However, this temptation should be avoided. We don't want to re-run database updates for every small tweak to the UI.
+Projects work best when they are small and focussed. 
 
-Instead, start by creating a Project Group for the application. Then add separate Projects to the Project Group for each component of the application. In-line with the single responsibility principle, and a bias toward loose-coupling, this allows each component to be managed and deployed indepenently. Where it's desirable to deploy all the components together, we can create a coordinating Project within the same Project Group.
+[Reveal icons for website, service and database]
+
+Let's imagine we're looking after the accounting software for our company. Our system has a web portal, some background service and a database.
+
+[Reveal monolithic project]
+
+It's tempting to add all the components of a system to a single project. However, this temptation should be avoided. We don't want to re-run database updates for every small tweak to the UI.
+
+[Reveal Project group architecture, with separate mini projects for separate components]
+
+Instead, start by creating a Project Group. Then add separate Projects to that Project Group for each component of the application. In-line with the single responsibility principle, and a bias toward loose-coupling, this allows each component to be managed and deployed indepenently. 
+
+[Add a global deployment coordinator project]
+
+Where it's desirable to deploy all the components together, we can create a coordinating Project within the same Project Group.
 
 Let's create our first Project and Project Group.
 
 [Fade to demo]
 
-Navigate to the Pojects page in the Octopus Deploy interface and click "ADD GROUP", enter a name and click "SAVE".
+Navigate to the Projects page in the Octopus Deploy interface and click "ADD GROUP", enter a name and click "SAVE".
 
 [Name is "Fundamentals Demos"]
 
