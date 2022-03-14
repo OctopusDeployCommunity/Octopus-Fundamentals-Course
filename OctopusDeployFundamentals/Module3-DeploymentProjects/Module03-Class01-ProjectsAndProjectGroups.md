@@ -21,19 +21,19 @@ Projects work best when they are small and focussed.
 
 [Reveal icons for website, service and database]
 
-Let's imagine we're looking after the accounting software for our company. Our system has a web portal, some background service and a database.
+Let's imagine we're looking after the accounting software for our company. It has a web portal, some background service and a database.
 
 [Reveal monolithic project]
 
-It's tempting to add all the components of a system to a single project. However, this temptation should be avoided. We don't want to re-run database updates for every small tweak to the UI.
+It's tempting to add everything to a single project. However, this temptation should be avoided. We don't want to be re-running database updates every time we tweak to the UI.
 
 [Reveal Project group architecture, with separate mini projects for separate components]
 
-Instead, start by creating a Project Group. Then add separate Projects to that Project Group for each component of the application. In-line with the single responsibility principle, and a bias toward loose-coupling, this allows each component to be managed and deployed indepenently. 
+Instead, start by creating a Project Group. Then add separate Projects to that Project Group for each component that can be deployed independently. In-line with the single responsibility principle, and a bias toward loose-coupling, this allows each part to be managed and deployed on its own schedule. 
 
 [Add a global deployment coordinator project]
 
-Where it's desirable to deploy all the components together, we can create a coordinating Project within the same Project Group.
+Where it's desirable to deploy everything together, we can create a coordinating Project within the same Project Group.
 
 Let's create our first Project and Project Group.
 
