@@ -56,7 +56,7 @@ After saving the page, we can see that the image and description have been updat
 Consider the following advice when setting up your own projects:
 
 - [Use concise names] Use concise names. Brevity goes a long when naming Projects.
-- [Automate all the things] Aim to automate the deployent of every part of the system. If the website updates are automated through Octopus, but deployments are regularly blocked on manual database updates, you'll need to automate the database steps to unleash Octopus's full potential.
+- [Automate all the things] Aim to automate the deployent of every part of the system. If the website updates are automated through Octopus, but deployments are regularly blocked on manual database updates, you'll want to automate the database steps to unleash Octopus's full potential.
 - [Break up big projects] If separate components of a system can be deployed independently, break them up into separate projects. Smaller projects are simpler, easier to govern and maintain, and both faster and safer to deploy.
 
 Thanks for watching, and happy deployments!
