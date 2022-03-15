@@ -39,17 +39,19 @@ Let's create our first Project and Project Group.
 
 [Fade to demo]
 
-Navigate to the Projects page in the Octopus Deploy interface and click "ADD GROUP", enter a name and click "SAVE".
+Navigate to the Projects page in the Octopus Deploy interface and click "ADD GROUP", enter a name and a description.
 
 [Name is "Fundamentals Demos"]
 
-Now click "ADD PROJECT", provide a name for this component, and click "SAVE". You've just created your first project.
+The description supports markdown, allowing us to add relevant hyperlinks, such as the source code, build server, documentation pages or whatever else may be useful to Project maintainers.
+
+Now let's add a Project to our Project Group, provide a name, and click "SAVE". You've just created your first project.
 
 [Name is "Random Quotes"]
 
-Let's start by reviewing the settings for our Project.
+Let's review the settings for our Project.
 
-On the settings page we can upload a logo for the Project, and enter a description. The description supports markdown, allowing us to add relevant hyperlinks, such as the source code, build server, documentation pages or whatever else may be useful to Project maintainers.
+On the settings page we can upload a logo for the Project, and enter a description. 
 
 After saving the page, we can see that the image and description have been updated, including any hyperlinks.
 
