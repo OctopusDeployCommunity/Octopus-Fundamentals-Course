@@ -145,6 +145,6 @@ Remember:
 
 - [Avoid assumptions] When creating your deployment process, don't make any assumptions about your target environment. Aim to include steps to install and configure any dependencies. Or, at the very least, verify that those dependencies have already been pre-intalled and set up appropriately.
 - [Include smoke tests] After any Steps that deploy your code, add Steps to execute some smoke tests to verify that everything is set up and working as expected.
-- [Use Run conditions] Take advantage of run conditions to toggle which steps are executed in each environment. It's far preferable to maintain a single process that can be deployed to all environments, than to maintain separate processes for deploying to different environments.  
+- [Use Run conditions] Take advantage of run conditions to toggle which steps are executed in each environment. It's far easier to maintain a single process that can be deployed to all environments, than it is to maintain separate processes for deploying to different environments.  
 
 Thanks for watching, and happy deployments!
