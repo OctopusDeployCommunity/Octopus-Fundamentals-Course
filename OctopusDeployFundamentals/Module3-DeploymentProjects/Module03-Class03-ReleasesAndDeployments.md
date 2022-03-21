@@ -17,41 +17,57 @@ First, a few definitions.
 
 Let's create a Release and Deployment.
 
-[Fade to Project Overview page for RandomQuotes]
+[Fade to the Octopus Dashboard]
 
-We'll be using a Project we created earlier in this module, which deploys a Package we uploaded in module 2, to the Infrastructure we configured in module 1.
+Starting at the Dashboard of our Octopus Instance, we can see the Projects we configured in the previous classes. In this class, we'll deploy the Random Quotes website from the package we uploaded in module 2, to the infrastructure we configured in module 1.
 
 [Switch tabs to default IIS page on the Deployment Target]
 
 Before we begin, observe that our Deployment Target is currently serving the Default IIS start page. If everything goes well, by the end of this video, we'll be able to refresh this page to reveal the RandomQuotes website. 
 
+[Fade back to the Octopus Dashboard]
+
 Let's get started.
 
-[Switch tabs back to Project Overview page for RandomQuotes]
+[Select the Random Quotes Project]
 
-Begin by clicking CREATE RELEASE.
+We manage Releases from the Releases page within our Project.
 
-[Click CREATE RELEASE]
+[Click Releases]
 
-Give the release a version number, such as 2022.3.31 or 1.0.0. Octopus Deploy expects SemVer for the Release Version. 
+Let's create our first Release.
 
-[Add version 2022.3.31]
+[CREATE RELEASE]
 
-Next we select the package version. We only have one version of the package to choose from, but in a real project we would probably have a new package for each CI build. By default, Octopus will assume the package with the highest semantic version. (Note, this might not be the package that was most recently created or uploaded.)
+Octopus expects SemVer for the Release Versions, so let's give the release a version such as 0.0.1 or 2022.3.21.
+
+[Add version 2022.3.21]
+
+Next we select the package version.
+
+[Click SELECT VERSION]
+
+We only have one version of the package to choose from, but in a real project we would probably have a new package for each CI build. Octopus will default to the package with the highest semantic version. (Note, that this might not be the package that was most recently created or uploaded.)
 
 [Select the most recent package]
 
 Optionally, you can also add Release Notes. Release Notes support markdown, so you can include links back to relevant contextual information, such as tickets, pull requests, or CI builds.
 
+[Release notes:
+- **Commit msg:** Update dotnetcore.yml
+- **Commit date:** 2022-01-22
+- **Branch:** master
+- **Commit ID:** [a5770bc](https://github.com/OctopusSamples/RandomQuotes/commit/a5770bc08aaf04ebb0a2c21564db732afb075868)
+- **Build number:** [63](https://github.com/OctopusSamples/RandomQuotes/actions/runs/1725966426)
+]
+
 Click SAVE to create the Release.
 
-[Add a version and some notes, click SAVE]
-
-This brings us to the page for this Release.
+[Click SAVE]
 
 The primary philosophy of Octopus Deploy is that how you deploy to dev and test, should be how you deploy to production. Releases are intended to be immutable and idempotent, meaning that regardless of any future code updates or configuration changes, a given Release should always be deployed in the same way and deliver the same result. This ensures no surprises when a Release is Deployed to Production.
 
-On this page we can see the versions of any Packages, Variables and Artifacts that have been snapshotted in this Release.
+On this page we can see the versions of any Packages, Variables and Artifacts that have been snapshotted for this Release.
 
 [Show Packages, Variables and Artifacts]
 
@@ -75,7 +91,7 @@ We'll leave accept the rest of the default options and click Deploy.
 
 [Click DEPLOY]
 
-Once the Deploymenthas started, you are shown a Task Summary screen. This gives you an overview of all the Steps that will run, and their status.
+Once the Deployment has started, you are shown a Task Summary screen. This gives you an overview of all the Steps that will run, and their status.
 
 On the right side of the screen you can see the Release Notes provided when the Release was created. We can also see the Task History, with details such as when the task was started and who triggered it.
 
