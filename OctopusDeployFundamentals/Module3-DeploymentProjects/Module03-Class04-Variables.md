@@ -26,7 +26,7 @@ Let's start by taking another look at the Hello World project we created earlier
 
 [Fade to process page for Hello World Project]
 
-The Process for this Project has a single Step that runs a PowerShell script to log a greeting. Let's imagine that we wanted to log a different greeting in each environment. To do that, let's navigate to the Variables page.
+The Process for this Project has a single Step that runs a PowerShell script to log a greeting. Let's say we want to log a different greeting in each environment. To do that, let's navigate to the Variables page.
 
 [Click Variables]
 
@@ -92,11 +92,17 @@ Here's the Process we set up in the previous class to deploy the RandomQuotes we
 
 [Scroll down, highlight the Structured Configuration Variables section]
 
-When we configured this project, we skipped over the Structured Configuration Variables options.
+When we configured this project, we skipped over the .NET Configuration Variable Substitution options. These would allow us to pass through different values during deployments.
 
-Let's update the Project to reference the file that contains our configuration variables. Octopus can update values in JSON, YAML, XML and Java Properties files.
+However, our configuration variables are stored in a JSON file, rather than a .NET config file. If we select CONFIGURE FEATURES, we'll see a selection of more advanced features that we can toggle on or off.
 
-Octopus expects the relative path to the configuration file from the route of the Package. Since our configuration file is in the route of our package, we only need the file name.
+[CLICK CONFIGURE FEATURES]
+
+Let's deselect the .NET Configuration Variables option, and instead select the Structured Configuration Variables options.
+
+[Deselect .NET Configuration Variables, select Structured Configuration Variables]
+
+This feature supports substitution in any JSON, YAML, XML or Java Properties files. Ours are in a JSON file.
 
 [Type appsettings.json, and save.]
 
