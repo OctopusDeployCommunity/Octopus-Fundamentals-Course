@@ -33,7 +33,7 @@ We can see the Project Deployment Process by clicking Process.
 
 A deployment process can be as complicated, or as simple as you like. For example, here we can see Notification steps, Manual Intervention steps and steps that execute the code deployment - in this case deploying a bunch of Kubernetes YAML.
 
-Note that we use the same steps when deploying to each environment. Those Kubernetes YAML steps will be executed exactly the same way in Development as in Production. This is consistent with the "Build Once, Deploy Many Times" mantra, building reliability and consistency into the Deployment Process. Imagine, for example, the administrative toil of duplicating the configuration for each environment. A subtle, missed inconsistency could easily cause unexpected problems in Production.
+Note that we use the same steps when deploying to each environment. Those Kubernetes YAML steps will be executed exactly the same way in Development as in Production. This is consistent with the "Build Once, Deploy Many Times" mantra, building reliability and consistency into the Deployment Process. Imagine, for example, the administrative toil of duplicating the configuration for each environment. A subtle, missed inconsistency between development and production could easily cause unexpected problems.
 
 However, while the same steps generally get deployed consistently to all environments, there is some flexibility. Let's imagine we're continuously deploying every source control update to Development, but we're deploying significantly less frequently to Production. In this case, we don't want to drown our team with notifications about every deployment to the Development environment. Equally, it wouldn't make sense to ask the business owners or DBAs to manually approve dozens, or even hundreds, of deploys each day. 
 
@@ -45,7 +45,7 @@ Let's build a deployment process of our own.
 
 [Switch to learn.octopus.com]
 
-Here's the Octopus Deploy Fundamentals Project Group from Class 1, now with two Projects. Let's start by creating a simple Process for the Hello World Project.
+Here's the Fundamentals demos Project Group from Class 1, now with two Projects. Let's start by creating a simple Process for the Hello World Project.
 
 [Click Hello World, then Process]
 
@@ -57,15 +57,18 @@ We're presented with a selection of predefined Step Templates. The simplest thin
 
 [Select Script]
 
-Octopus provides various Step Templates for running scripts, depending on where you host your stuff. We'll be deploying the the Windows Tentacles we configured in Module 1, so we'll select the basic "Run a Script" Template.
+Octopus provides various Step Templates for running scripts, depending on where you host your stuff. We'll be deploying to Windows Tentacles similar to those we configured in Module 1, so we'll select the basic "Run a Script" Template.
 
 [Click ADD]
 
 We'll give the script a name and add some notes.
 
-[Enter details]
+[
+Name: Execute Hello World script
+Description: A simple Hello World PowerShell script
+]
 
-Then we specify where we want to execute this script. Let's run our script on each of the Deployment Targets in each environment that have been assigned the Role RandomQuotes-WebServer. Note that if I was using a self-hosted Octopus instance, I'd additionally have an option to run the script on the Octopus Server itself, potentially avoiding the need to set up any specific infrastructure for what might be a simple and low-risk script.
+Then we specify where we want to execute this script. Let's run our script on each of the Deployment Targets in each environment that have been assigned the Role HelloWorld-Win2019. Note that if I was using a self-hosted Octopus instance, I'd additionally have an option to run the script on the Octopus Server itself, potentially avoiding the need to set up any specific infrastructure for what might be a simple and low-risk script.
 
 [Enter details]
 
@@ -97,7 +100,11 @@ In addition to the built-in step templates, Octopus also maintains a community S
 
 If you would like to learn more about using community Step Templates, or even contributing your own, you'll find more information in the additional resources associated with this module.
 
-[Fade back to demo, Add the Deploy to IIS Step]
+[Fade back to demo] 
+
+Let's add that Deploy to IIS step.
+
+[Add the Deploy to IIS Step]
 
 Once again, we can give our Step a name and add some notes.
 
