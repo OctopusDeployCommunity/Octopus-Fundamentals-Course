@@ -30,5 +30,3 @@ There's an important subset of our users who need some key new features. We want
 
 While half our team have been working on these new features, the rest have been focussing on other tasks. They've been shipping unrelated features and delivering bug-fixes. They don't want their process to be held up for a week while some release candidate is sat in the UAT environment awaiting feedback.
 
-
--- test, delete this line
