@@ -19,3 +19,7 @@ TO DO
 - Variable Syntax: www.someresource.todo.later
 - System Variables: www.someresource.todo.later
 - Structured configuration variables: https://octopus.com/docs/projects/steps/configuration-features/structured-configuration-variables-feature
+
+#### Multi-Tenancy
+
+- Tenants:: www.someresource.todo.later

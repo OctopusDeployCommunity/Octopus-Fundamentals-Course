@@ -2,13 +2,23 @@
 ## Module 3: Projects (Part 1, Deployments)
 ### Class 5: Lifecycles and Channels
 
-Welcome to module 3, class 5 of this Octopus Deploy Fundamentals training course. In this class we'll cover Lifecycles and Channels. Lifecycles enable us to define what order our Environments should be deployed to. Channels allow us to change various settings for different sorts of Releases. For example, perhaps you want to handle Releases from your main branch differently from feature branches.
+Welcome to module 3, class 5 of this Octopus Deploy Fundamentals training course.
+
+In this class we'll cover Lifecycles and Channels. 
 
 [![Link to YouTube video](https://img.youtube.com/vi/ofc-u61ukRA/0.jpg)](https://www.youtube.com/embed/ofc-u61ukRA)
+
+Lifecycles are used to manage the Software Development Lifecycle of a Project. They control the way the Releases for that Project are promoted between Environments. We can define which Enviroments the Releases for that Project should be deployed to, and in what order.
+
+We can also use Lifecycles to adjust retention policies. Perhaps, for example, you need to retain the Release information for your financial systems for many years, but for other systems such long retention policies are an unecessary overhead.
+
+Channels allow us to change various settings for different sorts of Releases. For example, perhaps you want to use a different Lifecycle for early access Releases or emergency hot-fixes.
 
 [Slides]
 
 So far, we've only been using two Environments: Development and Production. We specified that Development should come first. By default, Octopus enforces that all Releases must work through the Environments in order. This made sense, up until now.
+
+[Reveal UAT Environment]
 
 Now let's imagine we want to add a third Environment for the RandomQuotes website for User Acceptance Testing (UAT for short).
 
@@ -56,7 +66,7 @@ We can see that the Lifecycle for this project has been updated. Now the team ca
 
 The team has been using the new Lifecycle for a while and it's been working fine, up until now. 
 
-Our users want the ability to add filters to the random quote generator, allowing them to pick quotes on certain topics or from different people. The development team has split into two sub-teams, a "filters" sub-team who will work closely with some BETA testers on the new feature, and a "core" sub-team, who will work on other features and general bug-fixes.
+Our users want the ability to add filters to the random quote generator, allowing them to pick quotes on certain topics or from different people. The development team has split into two sub-teams, a "filters" sub-team who will work closely with small group of BETA users on the new feature, and a "core" sub-team, who will work on other features and general bug-fixes.
 
 In order to support this, our sub-teams have agreed on a branching strategy. All work associated with the "filters" feature will live on a 'filters' branch, and all other work will live on the 'main' branch.
 
@@ -113,4 +123,14 @@ Let's take a look at how the team have been getting on.
 From the Project Overview page, we can see that the Releases have been filtered into different Channels. We can see that the recent releases on the Default Channel have mostly been deployed to Development and Production. We could deploy these to UAT if we wanted, but we don't have to deploy to UAT before deploying to Production if we don't want to. We can also see that all the Releases from the Default Channel have been deployed to Development since this happens automatically.
 
 For the Pre-Release Channel, it's not possible to deploy to either Development or Production. Any Release could be deployed to UAT, but since Releases aren't deployed continuously, not all the Releases have been deployed. The team, in collaboration with the BETA users, have been selective about which versions to deploy, and when to deploy them.
+
+[Slides]
+
+Here are some recommendations as you create your own Lifecycles and Channels:
+
+[Use existing Environments] Lifecycles are created from Environments, and those can be shared across many Lifecycles. Don’t create a new Environment, just because you are creating a new Lifecycle.
+[Re-use Lifecycles] Re-use Lifecycles when appropriate. Lifecycles can be used for many Projects. You don’t need to create a new one for each Deployment Process.
+[Also use Channels for] And finally, you should be aware that you can do a lot more with Channels than toggle between different Lifecycles. They can also be used for customizing the Deployment Process, providing alternative values for Variables or, if you’ve set-up multi-tenancy, specifying which Tenants different releases should be deployed to. This could be useful, for example, perhaps you only want to release BETA updates to tenants with an “Early Access” flag. To learn more about these other use-cases, or to learn about Tenants, check out the additional resources associated with this module.
+
+Thanks for watching, and happy deployments!
 
